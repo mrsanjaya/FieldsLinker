@@ -295,6 +295,7 @@ function FieldsLinker(selector){
         self.data.Lists.forEach(function (x) {
             self.listNames.push(x.name);
             if (x.name == self.chosenListA) {
+                console.log("x.list : ", x.list)
                 x.list.forEach(function (y) {
                     console.log("from list push to listA : ", y)
                     self.listA.push(y);
