@@ -437,7 +437,10 @@ function FieldsLinker(selector){
             });
 
         self.listA.forEach(function (x, i) {
+            console.log("listA : ", x, i);
             let nrItems = Object.keys(x).length;
+
+            console.log("nrItems : ", nrItems)
             if (self.hideLink) {
                 nrItems--;
             }
@@ -452,7 +455,7 @@ function FieldsLinker(selector){
                 .appendTo(self.$ulLeft)
                 .attr('data-offset', i)
                 .attr('data-name', id)
-		.attr('data-id', x.value)
+		        .attr('data-id', x.value)
                 .css({
                     'width': '100%',
                     'position': 'relative'
