@@ -1003,10 +1003,11 @@ function FieldsLinker(selector){
     }
 }
 this.changeParameters = function(input){
+    console.log('changeParameters : ', input)
     var self = this;
     if (!self.onError) {
        if (input) {
-        var options = JSON.parse(JSON.stringify(input));
+        var options = input;
         if (options.className) {
             self.className = options.className;
         }
