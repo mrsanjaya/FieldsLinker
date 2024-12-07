@@ -889,7 +889,8 @@ function FieldsLinker(selector){
         if (!input) {
             setError('no input options provided (param 2)');
         }
-        self.data = JSON.parse(JSON.stringify(input));
+        // self.data = JSON.parse(JSON.stringify(input));
+        self.data = input;
         self.FL_Factory_Lists = self.data;
 
         if (!onFilter) {
