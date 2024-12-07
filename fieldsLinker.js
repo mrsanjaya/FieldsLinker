@@ -890,6 +890,7 @@ function FieldsLinker(selector){
             setError('no input options provided (param 2)');
         }
         // self.data = JSON.parse(JSON.stringify(input));
+        console.log("INPUT : ", input)
         self.data = input;
         self.FL_Factory_Lists = self.data;
 
