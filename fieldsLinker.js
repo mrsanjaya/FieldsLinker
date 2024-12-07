@@ -23,6 +23,7 @@ function getRandomInt(max) {
 ;(function($) {
     $.fn.fieldsLinker = function (action, input) {
         factory = this;
+        console.log("action : ", action)
         if (action == 'init') {
             factory.selector = factory[0];
             
@@ -45,6 +46,7 @@ function getRandomInt(max) {
                     fieldsLinkerMemory.push({"selector":factory.selector,"factory":factory});
                 }
             }
+            console.log('work init : ', input)
             factory.work.init(input);
             factory.work.deduplicate();
             factory.work.setGlobalRedraw();
