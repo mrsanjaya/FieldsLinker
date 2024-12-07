@@ -23,7 +23,7 @@ function getRandomInt(max) {
 ;(function($) {
     $.fn.fieldsLinker = function (action, input) {
         factory = this;
-        console.log("action : ", action)
+        console.log("action : ", action, input)
         if (action == 'init') {
             factory.selector = factory[0];
             
