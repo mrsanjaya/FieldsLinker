@@ -435,9 +435,9 @@ function FieldsLinker(selector){
                 'text-align': 'left',
                 'list-style': 'none'
             });
-
+        console.log("self.listA : ", self.listA)
         self.listA.forEach(function (x, i) {
-            console.log("listA : ", x, i);
+            console.log("listA : ", JSON.stringify(x), i);
             let nrItems = Object.keys(x).length;
 
             console.log("nrItems : ", nrItems)
