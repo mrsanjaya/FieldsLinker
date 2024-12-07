@@ -293,9 +293,12 @@ function FieldsLinker(selector){
         self.keyNameB = self.data.Lists[1].keyName || '';
 
         self.data.Lists.forEach(function (x) {
+
             self.listNames.push(x.name);
             if (x.name == self.chosenListA) {
+                console.log("X :", x)
                 console.log("x.list : ", x.list)
+                console.log("x.list JSON : ", JSON.stringify(x.list))
                 x.list.forEach(function (y) {
                     console.log("from list push to listA : ", y)
                     self.listA.push(y);
