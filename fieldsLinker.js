@@ -457,13 +457,14 @@ function FieldsLinker(selector){
             }
             let percent = (100 / nrItems) + '%';
             var $li = $('<li></li>');
-            let item = x.label;
-            let id = x.label;
+            var parsed = x.split("|")
+            let item = parsed[1];
+            let id = parsed[1];
             $li
                 .appendTo(self.$ulLeft)
                 .attr('data-offset', i)
                 .attr('data-name', id)
-		        .attr('data-id', x.value)
+		        .attr('data-id', parsed[0])
                 .css({
                     'width': '100%',
                     'position': 'relative'
