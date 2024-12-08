@@ -23,7 +23,6 @@ function getRandomInt(max) {
 ;(function($) {
     $.fn.fieldsLinker = function (action, input) {
         factory = this;
-        console.log("action : ", action, input)
         if (action == 'init') {
             factory.selector = factory[0];
             
@@ -46,7 +45,6 @@ function getRandomInt(max) {
                     fieldsLinkerMemory.push({"selector":factory.selector,"factory":factory});
                 }
             }
-            console.log('work init : ', input)
             factory.work.init(input);
             factory.work.deduplicate();
             factory.work.setGlobalRedraw();
@@ -295,16 +293,10 @@ function FieldsLinker(selector){
         self.keyNameB = self.data.Lists[1].keyName || '';
 
         self.data.Lists.forEach(function (x) {
-
             self.listNames.push(x.name);
             if (x.name == self.chosenListA) {
-                console.log("X :", x)
-                console.log("x.list : ", x.list)
-                console.log("x.list JSON : ", JSON.stringify(x.list))
                 x.list.forEach(function (y) {
-                    console.log("from list push to listA : ", y)
                     self.listA.push(y);
-                    console.log("result from list push to listA : ", self.listA)
                 });
             }
             if (x.name == self.chosenListB) {
@@ -443,12 +435,9 @@ function FieldsLinker(selector){
                 'text-align': 'left',
                 'list-style': 'none'
             });
-        console.log("self.listA : ", self.listA)
-        self.listA.forEach(function (x, i) {
-            console.log("listA : ", JSON.stringify(x), i);
-            let nrItems = Object.keys(x).length;
 
-            console.log("nrItems : ", nrItems)
+        self.listA.forEach(function (x, i) {
+            let nrItems = Object.keys(x).length;
             if (self.hideLink) {
                 nrItems--;
             }
@@ -457,14 +446,12 @@ function FieldsLinker(selector){
             }
             let percent = (100 / nrItems) + '%';
             var $li = $('<li></li>');
-            var parsed = x.split("|")
-            let item = parsed[1];
-            let id = parsed[1];
+            let item = x;
+            let id = x;
             $li
                 .appendTo(self.$ulLeft)
                 .attr('data-offset', i)
                 .attr('data-name', id)
-		        .attr('data-id', parsed[0])
                 .css({
                     'width': '100%',
                     'position': 'relative'
@@ -892,9 +879,7 @@ function FieldsLinker(selector){
         if (!input) {
             setError('no input options provided (param 2)');
         }
-        // self.data = JSON.parse(JSON.stringify(input));
-        console.log("INPUT : ", input)
-        self.data = input;
+        self.data = JSON.parse(JSON.stringify(input));
         self.FL_Factory_Lists = self.data;
 
         if (!onFilter) {
@@ -1004,11 +989,10 @@ function FieldsLinker(selector){
     }
 }
 this.changeParameters = function(input){
-    console.log('changeParameters : ', input)
     var self = this;
     if (!self.onError) {
        if (input) {
-        var options = input;
+        var options = JSON.parse(JSON.stringify(input));
         if (options.className) {
             self.className = options.className;
         }
